@@ -31,6 +31,7 @@ git push -u origin master
 bitbucket.org -> git clone https://adamsalex@bitbucket.org/adamsalex/testgit.git
 
 3. git push -u origin --all (копируем на сервер)
+4. перенесем с parallelworld -> master
 
 
 
