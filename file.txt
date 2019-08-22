@@ -1,5 +1,81 @@
+or create a new repository on the command line
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin git@github.com:adamsalex/test-1.git
+git remote add origin git@github.com:adamsalex/getImg.git
 git push -u origin master
+
+…or push an existing repository from the command line
+git remote add origin git@github.com:adamsalex/getImg.git
+git push -u origin master
+
+
+0. открываем консоль Openserver
+1. создаем папку domain\gittest
+2. заходим в нее пишем в git init
+3. посмотреть какие файлы отслеживаются git status (красные файлы не отслеживаются, зеленые отслеживаются)
+4. добавить все файлы для отслеживания git add .
+5. зафиксировать изменения git commit -m "comment"
+6. смотрим git status красным показаны файлы которые были изменены (git add эти файлы)
+7. git commit
+8. посмотреть историю git log
+9. чтобы откатиться назад нужно git checkout имя комита (из git log) - изменения произойдут но их нужно писать в паралельную ветку (так как в прошлом изменения нельзя фиксировать)
+10. создание паралелльной ветки git checkout -b parallelworld (у нас зафиксирован файл в parallelworld) далее дописываем в него инфо add & commit
+11. переключаемся на мастер ветку git checkout master
+
+--Работа с удаленным репозитарием --
+1. github -> create repository (name)-> buttom green "clone download" -> copy URL
+2. один раз нужно сгенерировать ключ public - cmd -> ssh-keygen в папке C:\Users\Alex-win\.ssh берем ключ .pub и добавляем в гитхаб
+3. настраиваем удаленный репозитарий Git  -> вставляем полученный урл в cmd:  git remote add origin git@github.com:adamsalex/testgit.git (если уже был репозитарий git remote set-url origin git@github.com:adamsalex/testgit.git )
+
+bitbucket.org -> git clone https://adamsalex@bitbucket.org/adamsalex/testgit.git
+
+3. git push -u origin --all (копируем на сервер)
+
+
+
+Git: пошаговая инструкция
+Ilya Zakharkin edited this page on 7 Apr 2018 · 1 revision
+Страничка, посвящённая Git, если хочется разобраться как следует
+
+Пошаговая инструкция для работы с Git для тех, кто хочет удобно работать с домашками:
+
+Делаете fork нашего репозитория на GitHub (кнопочка Fork в паром верхнем углу)
+
+Создаёте себе на компьютере папку DLSchool (или MLSchool)
+
+Запускаете Git (перед этим скачав его с официального сайта git), а именно Git Bash
+
+В открывшемся окне командами cd перемещаетесь в папку, которую создали в пункте 2
+
+Выполняете в ней (в окне git'а) следующий набор команд:
+
+git init
+git pull <ссылка на ваш форк на сайте GitHub, вида .../dlschl или .../mlschl> master
+Теперь у вас на компьютере в этой папке все файлы, которые есть в Вашем форке на сайте GitHub
+
+Делаете ДЗ/смотрите семинары, изменяете нужные файлы, добавляете файлы и т.д.
+
+Теперь Вы хотите, что Ваши изменения появились на GitHub. В папке, в которой всё это лежит, выполняете:
+
+git add .
+(точка добавляет ВСЕ файлы, которые Вы изменяли; чтобы добавить только какой-то конкретный файл нужно написать его имя вместо точки, например: git add myfile.py)
+
+Потом сразу эту команду:
+git commit -m '<ваше сообщение (лучше на английском), комментарий к проделанной работе>'
+Далее нужно действовать так:
+а). Если у вас на компьютере актуальная версия файлов с Вашего репозитория на GitHub, то сразу делаете:
+
+git push <ссылка на ваш форк на сайте GitHub, вида .../dlschl или .../mlschl> master
+б). Если Вы что-то меняли на сайте GitHub, и у Вас на компьютере неактуальная версия файлов, нет каких-то файлов, которые есть на GitHub, то сначала перед push нужно сделать pull:
+
+git pull <ссылка на ваш форк на сайте GitHub, вида .../dlschl или .../mlschl> master
+И теперь уже команду из пункта a)
+
+Изменения теперь в Вашем репозитории, можете кидать нам на почту ссылку на выполненную домашку
+[12. Чтобы подгрузить в Ваш форк актуальные файлы из репозитория нашей Школы (например, мы сделали новую домашку и Вы хотите её себе скачать), нужно сделать в папке DLSchool (или MLSchool):
+git pull https://github.com/deepmipt/dlschl master (в случае DLSchool)
+или
+git pull https://github.com/miptmlschool/mlschl master (в случае MLSchool)
+
+Git может предложить смёрджить изменения (потому что в Ваших версиях ноутбуков домашки уже сделаны), в таком случае Вам нужно вручную разрулить, какой файл выбирать (удалить файл, в котором нет Ваших изменений), если всё автоматически не разрешилось]
